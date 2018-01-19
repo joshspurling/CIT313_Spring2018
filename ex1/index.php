@@ -1,28 +1,26 @@
- <?php
- /*
-Create a function that uses a loop to return every value in the array EXCEPT your name in a unordered list (<ul>) to the screen
-Print the results of the function to the screen.*/
+<?php
 include('_includes/header.inc.php');
 
 $favorites = array ('name' => 'Josh', 'color' => 'black', 'movie' => 'Monty Python and the Holy Grail',
 'book' => 'Of Mice and Men', 'website'=> 'soundcloud.com');
 
-function displayFavorites() {
+function displayFavorites($favorites) {
   echo '<ul>';
-    foreach ($favorites as $item) {
-    echo '<li> '. $item . ' </ul>';
+    foreach ($favorites as $key => $item) {
+        if ($key != 'name') {
+    echo '<li> '. $item . ' </li>';
+        }
   }
-  echo '</ul>'
+  echo '</ul>';
 }
      ?>
-  </ul>
-}
-?>
+
+
 <body>
 <h1>
 <?php
 echo $favorites ['name'];
-displayFavorites();
+displayFavorites($favorites);
  ?>
 </h1>
 
