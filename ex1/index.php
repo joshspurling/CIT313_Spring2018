@@ -15,7 +15,6 @@ function displayFavorites($favorites) {
 }
      ?>
 
-
 <body>
 <h1>
 <?php
