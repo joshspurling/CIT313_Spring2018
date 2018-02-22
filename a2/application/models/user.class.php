@@ -12,14 +12,16 @@ public function __get($name){
 }
 public function __destruct(){
 }
-function getName() {
-  return array(
-  'userID' => $userID,
-  'firstname' => $firstname,
-  'lastname' => $lastname,
-  'email' => $email,
-  'role' => $role
-);
-}
+public function getName() {
+        return array (
+            'userid' => $this->userID,
+            'first' => $this->firstname,
+            'last' => $this->lastname,
+            'email' => $this->email,
+            'role' => $this->role
+        );
+    }
+
+
 }
  ?>
