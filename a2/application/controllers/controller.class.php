@@ -12,11 +12,11 @@ class controller {
   }
 
   function home() {
-    $userID = 'SPU001';
-    $firstname = 'Josh';
-    $lastname = 'Spurling';
-    $email = 'jjspurli@iupui.edu';
-    $role = 'user';
+    $this->user->userID = 'SPU001';
+    $this->user->firstname = 'Josh';
+    $this->user->lastname = 'Spurling';
+    $this->user->email = 'jjspurli@iupui.edu';
+    $this->user->role = 'user';
     $data = $this->user->getName();
     $this->load->view('view.php', $data);
   }
