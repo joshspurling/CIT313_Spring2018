@@ -6,8 +6,8 @@
   <body>
     <h1>Hello from my view!</h1>
     <?php
-      echo '<ul><li>' . $userid . '</li><li>' . $first . '</li><li>'
-      . $last . '</li><li>' . $email . '</li><li>' . $role . '</li></ul>'
+      echo '<ul><li>User ID: ' . $userid . '</li><li>First Name: ' . $first . '</li><li>Last Name: '
+      . $last . '</li><li>Email: ' . $email . '</li><li>Role: ' . $role . '</li></ul>'
      ?>
   </body>
 </html>
