@@ -1,6 +1,7 @@
 <?php
 function myLoad($class) {
   include_once('classes/'.$class.'.class.php');
+
 }
 
 spl_autoload_register('myLoad');
@@ -14,6 +15,6 @@ $user->email_address = $_POST["email"];
 if ($user instanceof RegisteredUser) {
   echo 'First Name: ' . $user->first_name;
   echo '<br>Last Name: ' . $user->last_name;
-  echo '<br>Email: ' . $user->email_address;  
+  echo '<br>Email: ' . $user->email_address;
 }
 ?>
