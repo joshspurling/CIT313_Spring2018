@@ -63,7 +63,7 @@
                   </a>
                   <ul class="dropdown-menu" role="menu">
                     <?php if($u->isAdmin()){ ?>
-                      <li><a href="<?php echo BASE_URL?>addpost/">Add Blog Post</a></li>
+                      <li><a href="<?php echo BASE_URL?>manageposts/">Add Blog Post</a></li>
                   </ul>
                 <?php } ?>
                   <li><a href="<?php echo BASE_URL?>login/logout/">Log Out</a></li>

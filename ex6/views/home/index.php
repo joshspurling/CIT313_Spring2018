@@ -2,7 +2,7 @@
 include('views/elements/header.php');?>
 <div class="container">
 	<div class="page-header">
-    <h1>Hello From the View</h1>
+    <h1>Latest News From <?php echo $rss_title; ?></h1>
   </div>
 	<h4>
 	<?php
