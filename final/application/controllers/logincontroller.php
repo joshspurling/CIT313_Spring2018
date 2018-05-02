@@ -14,21 +14,29 @@ class LoginController extends Controller{
 			 $userInfo = $this->userObject->getUserFromEmail($_POST['email']);
 			 $_SESSION['uID'] = $userInfo['uID'];
 
-			 if(strlen($_SESSION['redirect'])>0){
-				 $view = $_SESSION['redirect'];
-				 unset($_SESSION['redirect']);
-				 header('Location: '.BASE_URL.$view);
-			 }
-			 else{
-				header('Location: '.BASE_URL);
-			 }
+			 if($this->userObject->isActive($_SESSION['uID'])){
 
+			 		if(strlen($_SESSION['redirect'])>0){
+				 		$view = $_SESSION['redirect'];
+				 		unset($_SESSION['redirect']);
+				 		header('Location: '.BASE_URL.$view);
+			 			}
+			 		else{
+						header('Location: '.BASE_URL);
+			 			}
+		 		}
+		 		else{
+			 		$this->set('error','Your account is still awaiting approval');
+			 		/*unset($_SESSION['uID']);
+			 		session_write_close();
+			 		session_start();*/
+		 			}
+		  	}
+		 		else{
+			 		$this->set('error','Wrong email/password combination');
+		 			}
+		 	}
 
-		 }
-		 else{
-			 $this->set('error','Wrong email/password combination');
-		 }
-		 }
 		 public function logout(){
 			 unset($_SESSION['uID']);
 			 session_write_close();

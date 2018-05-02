@@ -24,7 +24,7 @@
       }
       ?>
 
-    
+
 
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -80,9 +80,15 @@
                                     <li>
                                         <a href="<?php echo BASE_URL?>categories/">Manage Categories</a>
                                     </li>
+                                    <li>
+                                        <a href="<?php echo BASE_URL?>manageusers/">Manage Users</a>
+                                    </li>
                                 <?php
                                 }
                                 ?>
+                                <li>
+                                    <a href="<?php echo BASE_URL?>profile/">My Profile</a>
+                                </li>
                                 <li>
                                     <a href="<?php echo BASE_URL?>login/logout/">Log Out</a>
                                 </li>

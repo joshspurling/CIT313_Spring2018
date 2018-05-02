@@ -2,8 +2,8 @@
 class Post extends Model{
 
     function getPost($pID){
-        $sql = 'SELECT p.pID, p.title, p.content, p.uid, p.categoryid, p.date, c.name as name, u.first_name, u.last_name, co.commentText, co.date as commentDate FROM posts p
-		INNER JOIN categories c on c.categoryid = p.categoryid
+        $sql = 'SELECT p.pID, p.title, p.content, p.uid, p.categoryID, p.date, c.name as name, u.first_name, u.last_name, co.commentText, co.date as commentDate FROM posts p
+		INNER JOIN categories c on c.categoryID = p.categoryID
 		INNER JOIN users u on u.uid = p.uid
     INNER JOIN comments co on co.postID = p.pID
 
@@ -50,7 +50,7 @@ class Post extends Model{
         }
 
         $sql =  'SELECT p.pID, p.title, p.content, p.uid, p.categoryid, p.date, c.name as name, u.first_name, u.last_name FROM posts p
-		INNER JOIN categories c on c.categoryid = p.categoryid
+		INNER JOIN categories c on c.categoryID = p.categoryID
 		INNER JOIN users u on u.uid = p.uid'.$numposts;
 
         // perform query

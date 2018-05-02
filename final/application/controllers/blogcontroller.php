@@ -26,6 +26,12 @@ class BlogController extends Controller{
 
 	}
 
+	public function category($cID){
+			$this->postObject = new Post();
+	$post = $this->postObject->getCatPosts($cID);
+		$this->set('post',$post);
+	}
+
 
 }
 

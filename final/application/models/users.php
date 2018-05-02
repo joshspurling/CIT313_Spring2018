@@ -6,6 +6,7 @@ public $first_name;
 public $last_name;
 public $email;
 protected $user_type;
+public $active;
 
 	// Constructor
 	public function __construct(){
@@ -18,6 +19,7 @@ protected $user_type;
 			$this->last_name = $userInfo['last_name'];
 			$this->email = $userInfo['email'];
 			$this->user_type = $userInfo['user_type'];
+			$this->active = $userInfo['active'];
 		}
 		}
 
@@ -46,8 +48,16 @@ protected $user_type;
 			return false;
 		}
 	}
+	public function isActive(){
+		if($this->active == '1'){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	public function getUser($uID){
-		$sql = 'SELECT uID, first_name, last_name, email, password FROM users WHERE uID = ?';
+		$sql = 'SELECT uID, first_name, last_name, email, password, active FROM users WHERE uID = ?';
 
 		// perform query
 		$results = $this->db->getrow($sql, array($uID));
@@ -59,7 +69,7 @@ protected $user_type;
 		if($limit > 0){
 			$numusers = ' LIMIT '.$limit;
 		}
-		$sql = 'SELECT uID, first_name, last_name, email, password FROM users'.$numusers;
+		$sql = 'SELECT uID, first_name, last_name, email, password, user_type, active FROM users'.$numusers;
 
 		// perform query
 		$results = $this->db->execute($sql);
@@ -81,7 +91,7 @@ protected $user_type;
 	}
 
 	public function checkUser($email, $password){
-		$sql  = "SELECT email, password FROM users WHERE email = ?";
+		$sql  = "SELECT email, password, active FROM users WHERE email = ?";
 		$results = $this->db->getrow($sql, array($email));
 		$user = $results;
 		$password_db = $user[1];
@@ -105,5 +115,21 @@ protected $user_type;
 		$results = $this->db->getrow($sql, array($uID));
 		$user = $results;
 		return $user;
+	}
+
+	public function updateActive($data) {
+
+			$sql = 'UPDATE users SET active = 1 where uID = ?';
+			$this->db->execute($sql, $data);
+			$message = "User approved.";
+			return $message;
+	}
+
+	public function deleteUser($data) {
+
+			$sql = 'DELETE FROM users where uID = ?';
+			$this->db->execute($sql, $data);
+			$message = "User deleted.";
+			return $message;
 	}
 }
