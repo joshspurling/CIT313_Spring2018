@@ -27,9 +27,9 @@ class LoginController extends Controller{
 		 		}
 		 		else{
 			 		$this->set('error','Your account is still awaiting approval');
-			 		/*unset($_SESSION['uID']);
+			 		unset($_SESSION['uID']);
 			 		session_write_close();
-			 		session_start();*/
+			 		session_start();
 		 			}
 		  	}
 		 		else{

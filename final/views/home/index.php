@@ -9,8 +9,13 @@ include('views/elements/header.php');?>
     <div class="span5">
 			<div class="well">
       <h1 class="text-center">Bizarre Blog</h1><hr/>
-      <p class="text-center">This is a blog. It does not work very well, but
-      I worked on it very, very hard.</p><hr/>
+      <p class="text-center">Lorem ipsum dolor sit amet, an iudico maluisset vim.
+         Pri ex nominati postulant, et mel sumo agam, pro vocibus facilisis accusamus
+         no. Ea unum minimum explicari nec, alii senserit et mei. Error fabulas
+         concludaturque te vis, quo no inani incorrupte. Ea facer maluisset dignissim
+         ius, duo an deserunt splendide, in mel tota oratio corpora. Ne etiam
+         inimicus prodesset has, homero populo tacimates per id, et his omnis
+         soluta euripidis. Et debet bonorum offendit sed.</p><hr/>
       <h3>Get your local weather</h3>
       <form method="post" action="<?php echo BASE_URL?>weather/getresults">
 

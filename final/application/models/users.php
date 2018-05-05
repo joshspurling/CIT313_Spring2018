@@ -48,14 +48,20 @@ public $active;
 			return false;
 		}
 	}
-	public function isActive(){
-		if($this->active == '1'){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
+	public function isActive($uID){
+
+            $sql = "SELECT active FROM users WHERE uID = ?";
+
+            $result = $this->db->getrow($sql,array($uID));
+
+            if($result['active']==='1'){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
 	public function getUser($uID){
 		$sql = 'SELECT uID, first_name, last_name, email, password, active FROM users WHERE uID = ?';
 

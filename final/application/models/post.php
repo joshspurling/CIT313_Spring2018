@@ -31,7 +31,10 @@ class Post extends Model{
 
     public function getCatPosts($cID){
 
-        $sql = 'select * from posts where categoryID = ?';
+        $sql = 'SELECT p.pID, p.title, p.content, p.uid, p.date, u.first_name, u.last_name
+         FROM posts p
+    INNER JOIN users u ON u.uid = p.uid
+     WHERE categoryID = ?';
 
         $results = $this->db->execute($sql, $cID);
 
@@ -49,7 +52,7 @@ class Post extends Model{
             $numposts = ' LIMIT '.$limit;
         }
 
-        $sql =  'SELECT p.pID, p.title, p.content, p.uid, p.categoryid, p.date, c.name as name, u.first_name, u.last_name FROM posts p
+        $sql =  'SELECT p.pID, p.title, p.content, p.uid, p.categoryID, p.date, c.name as name, u.first_name, u.last_name FROM posts p
 		INNER JOIN categories c on c.categoryID = p.categoryID
 		INNER JOIN users u on u.uid = p.uid'.$numposts;
 
